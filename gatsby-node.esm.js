@@ -17,9 +17,9 @@ const CategoryView = require.resolve('./src/templates/CategoryView')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const inventory = await getInventory()
+  //const inventory = await getInventory()
   /* replace const inventory = await getInventory() with this  */
-  //const inventory = await fetchInventory()
+  const inventory = await fetchInventory()
 
   createPage({
     path: 'all',
@@ -84,8 +84,8 @@ exports.createPages = async ({ graphql, actions }) => {
 exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions
   /* replace const inventory = await getInventory() with this  */
-  //const inventory = await fetchInventory()
-  const inventory = await getInventory()
+  const inventory = await fetchInventory()
+  //const inventory = await getInventory()
 
   /* create nav info for categories */
   const categoryNames = inventory.reduce((acc, next) => {
